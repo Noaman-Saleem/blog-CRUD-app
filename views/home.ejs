@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <h1>All blogs</h1>
+	<a href="/blogs/new">Add new Blog</a>
+	<% for(let blog of allBlogs){ %>
+		<h3>
+			<%= blog.title %>
+	</h3>
+	<p>
+		<%= blog.body %>
+	</p>
+	<i><%= blog.author %></i>
+	<br>
+	<a href="#">Details</a>
+	<a href="/blogs/<%= blog._id %>/edit">Edit</a>
+	<!-- <a href="/blogs/<%= blog._id %>/delete">Delete</a> -->
+	<form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+		<button>
+			Delete
+		</button>
+	</form>
+	<hr>
+	
+	<% } %>
+</body>
+
+</html>
